@@ -14,6 +14,7 @@
 
 
 <div id="keyUp">
+    <h1>KeyUp</h1>
     enter in text that is captured and output<br>
     <input type="text" v-on:keyup="nameKeyUp">
     Output: {{ name }}
@@ -30,18 +31,21 @@
 </div>
 
 <div id="twoWayDataBindingNumber">
+    <h1>Two Way Data Binding</h1>
     <input type="text" v-model.number="age">
     <p>you entered: {{ age }}</p>
     <p>Type: {{ typeof age }}</p>
 </div>
 
 <div id="twoWayDataBindingNumberLazy">
+    <h1>Lazy Two Way Data Binding Number</h1>
     <input type="text" v-model.number.lazy="age">
     <p>you entered: {{ age }}</p>
     <p>Type: {{ typeof age }}</p>
 </div>
 
 <div id="twoWayDataBindingName">
+    <h1>Name Two Way Data Binding</h1>
     <input type="text" v-model.trim="name">
     <p>you entered: {{ name }}</p>
     <p>Type: {{ typeof age }}</p>
@@ -49,16 +53,19 @@
 
 
 <div id="htmlOutput">
+    <h1>HTML Output</h1>
     <div v-html="html"></div>
 </div>
 
 <div id="boolean">
+    <h1>Vue Boolean</h1>
     <p v-if="items > 10"> {{items}}</p>
     <p v-else-if="items > 0">Just a few items left</p>
     <p v-else>out of stock</p>
 </div>
 
 <div id="multipleElementsAffected">
+    <h1>Multiple Element Manipulation</h1>
     <p v-if="items > 10"> {{items}}</p>
     <p v-else-if="items > 0">Just a few items left</p>
     <p v-else>out of stock</p>
@@ -66,24 +73,29 @@
         <p v-if="items > 10"> Special Offer</p>
     </template>
 </div>
+
 <div id="hide">
+    <h1>Hide Elements</h1>
     <p v-show="isNinja">View This</p>
     <p v-show="!isNinja">Or View This</p>
     <button v-on:click="isNinja = !isNinja">toggleView</button>
 </div>
+
 <div id="cloak">
     <h1>Cloak Example</h1>
     <p v-cloak>{{message}}</p>
 </div>
 
 <div id="loopingThroughArrays">
+    <h1>Looping Through Arrays</h1>
     <ul>
         <li v-for="string in strings">{{string}}</li>
     </ul>
 </div>
 
 <div id="table">
-    <table border="1">
+    <h1>Vue Table Element Aggregator</h1>
+    <table class="center" border="1">
         <thead>
         <tr>
             <th>name</th>
@@ -103,7 +115,8 @@
 
 
 <div id="accessingArrays">
-    <table border="1">
+    <h1>Accessing Arrays</h1>
+    <table class="center" border="1">
         <thead>
         <tr>
             <th>name</th>
@@ -123,6 +136,7 @@
 </div>
 
 <div id="loopThroughObjectProperties">
+    <h1>Loop Through Object Properties</h1>
     <ul>
         <li v-for="(value, propertyName, index) in person">
             {{propertyName}}: {{value}} ({{index}})
@@ -131,6 +145,7 @@
 </div>
 
 <div id="outputRangeOfNumbers">
+    <h1>Output Range Of Numbers</h1>
     <ul>
         <li v-for="(n, index) in 10">
             {{n}} * {{index}} = {{n * index}}
@@ -140,6 +155,7 @@
 
 
 <div id="addingToTheDom">
+    <h1>Adding to the DOM</h1>
     <ul>
         <li v-for="(person, index) in persons" v-bind:key="person.id">
             {{person.name}} {{person.id}} ({{index}})
@@ -151,6 +167,55 @@
 
 </div>
 
+<div id="gettersAndSetters">
+    <h1>Getters and Setters</h1>
+    <p>{{ counter }}</p>
+    <p>{{ fullName }}</p>
+    <p>{{ fullName }}</p>
+
+    <button v-on:click="counter++">Increase Counter</button>
+    <button v-on:click="changeName">Change Name</button>
+    <button v-on:click="changeNameSetter">Change Name (setter)</button>
+</div>
+
+<div id="watchers">
+    <h1>Watchers</h1>
+    <input type="text" v-model="searchQuery">
+    <p v-if="isSearching">Searching...</p>
+    <div v-else>
+        <ol>
+            <li v-for="result in results">{{ result }}</li>
+        </ol>
+    </div>
+</div>
+
+<div id="filters">
+    <h1>Filters</h1>
+    <p>{{ message | uppercase(true) }}</p>
+    <p>{{ message | uppercase(false) }}</p>
+</div>
+
+<div id="filters2">
+    <h1>Filters</h1>
+    <p v-bind:title="message | uwfirst">{{ message }}</p>
+</div>
+
+<div id="filters3">
+    <h1>Filters</h1>
+    <p v-bind:title="message | uwfirst | removeSpaces">{{ message }}</p>
+</div>
+
+<div id="cssStyling">
+    <div style="width: 200px; height: 200px;" v-bind:style="{ 'background-color': color }">
+    </div>
+    <button v-on:click= "changeColor">Change Color</button>
+</div>
+
+<div id="shapes">
+    <div class="shape"
+         v-for="shape in shapes"
+         v-bind:class="[ shape.shapeType, shape.direction ? shape.direction : '', { animate: shape.animate } ]"></div>
+</div>
 
 <script src="index.js"></script>
 </body>
