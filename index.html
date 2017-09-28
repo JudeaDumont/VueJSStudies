@@ -208,7 +208,7 @@
 <div id="cssStyling">
     <div style="width: 200px; height: 200px;" v-bind:style="{ 'background-color': color }">
     </div>
-    <button v-on:click= "changeColor">Change Color</button>
+    <button @click= "changeColor">Change Color</button>
 </div>
 
 <div id="shapes">
@@ -216,6 +216,31 @@
          v-for="shape in shapes"
          v-bind:class="[ shape.shapeType, shape.direction ? shape.direction : '', { animate: shape.animate } ]"></div>
 </div>
+
+<br>
+<div id="shapesTwo">
+    <div class="shape" v-bind:style="shapeStyles" v-on:click="changeShape"></div>
+</div>
+
+<div id="employeeLoop">
+    <table border="1">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Title</th>
+            <th>Company</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="(employee,loopIndex) in employees" v-bind:class="{ highlighted: loopIndex % 2 }">
+            <td>{{ employee.name }}</td>
+            <td>{{ employee.title }}</td>
+            <td>{{ companyName }}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
 
 <script src="index.js"></script>
 </body>

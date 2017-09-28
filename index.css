@@ -19,6 +19,7 @@ table.center {
     height: 150px;
     float: left;
     margin: 10px;
+    background-color: aqua;
 }
 
 .circle {
@@ -72,4 +73,8 @@ table.center {
     100%{
         transform: scale(1.0);
     }
+}
+
+.highlighted{
+    background-color: gold;
 }

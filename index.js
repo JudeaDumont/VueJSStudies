@@ -188,16 +188,16 @@ new Vue({
 
 new Vue({
     el: "#watchers",
-    data:  {
+    data: {
         searchQuery: '',
         results: [],
         isSearching: false
     },
     watch: {
-        searchQuery: function(query){
+        searchQuery: function (query) {
             this.isSearching = true;
             var viewModel = this;
-            setTimeout(function(){
+            setTimeout(function () {
                 viewModel.results = ['Javascript', 'PHP', 'MySql'];
                 viewModel.isSearching = false;
             }, 500)
@@ -211,16 +211,15 @@ new Vue({
         message: 'aloha'
     },
     filters: {
-        uppercase: function(value, onlyFirstCharacter) {
-            if(!value){
+        uppercase: function (value, onlyFirstCharacter) {
+            if (!value) {
                 return '';
             }
 
-            if(onlyFirstCharacter)
-            {
+            if (onlyFirstCharacter) {
                 return value.charAt(0).toUpperCase() + value.slice(1);
             }
-            else{
+            else {
                 return value.toString().toUpperCase();
             }
         }
@@ -233,13 +232,13 @@ new Vue({
         message: 'aloha aloha'
     },
     filters: {
-        uwfirst: function(value){
-            if(!value){
+        uwfirst: function (value) {
+            if (!value) {
                 return '';
 
             }
             var parts = value.toString().split(' ');
-            var uppercasedWords = parts.map(function(word){
+            var uppercasedWords = parts.map(function (word) {
                 return word.charAt(0).toUpperCase() + word.slice(1);
             });
 
@@ -254,20 +253,20 @@ new Vue({
         message: 'aloha aloha'
     },
     filters: {
-        uwfirst: function(value){
-            if(!value){
+        uwfirst: function (value) {
+            if (!value) {
                 return '';
 
             }
             var parts = value.toString().split(' ');
-            var uppercasedWords = parts.map(function(word){
+            var uppercasedWords = parts.map(function (word) {
                 return word.charAt(0).toUpperCase() + word.slice(1);
             });
 
             return uppercasedWords.join(' ');
         },
-        removeSpaces: function(value){
-            if(!value){
+        removeSpaces: function (value) {
+            if (!value) {
                 return '';
             }
             return value.toString().replace(/ /g, '')
@@ -276,16 +275,16 @@ new Vue({
 })
 
 new Vue({
-    el:"#cssStyling",
+    el: "#cssStyling",
     data: {
         color: 'yellow',
     },
     methods: {
-        changeColor: function(){
-            if(this.color=='blue'){
+        changeColor: function () {
+            if (this.color == 'blue') {
                 this.color = 'red';
             }
-            else{
+            else {
                 this.color = 'blue';
             }
         }
@@ -293,7 +292,7 @@ new Vue({
 })
 
 new Vue({
-    el:'#shapes',
+    el: '#shapes',
     data: {
         shapes: [
             {shapeType: 'circle', animate: true},
@@ -310,4 +309,37 @@ new Vue({
             {shapeType: 'triangle', direction: 'right', animate: false},
         ]
     }
+})
+
+
+new Vue({
+    el: '#shapesTwo',
+    data: {
+        shapeStyles: {},
+    },
+    methods: {
+        changeShape: function () {
+            if(typeof this.shapeStyles['border-radius'] !== 'undefined'){
+                Vue.set(this.shapeStyles, 'border-radius', undefined);
+            }
+            else{
+                Vue.set(this.shapeStyles, 'border-radius', '50%');
+            }
+        }
+    }
+})
+
+new Vue({
+    el:'#employeeLoop',
+    data: {
+        employees: [
+            {name: 'Abby', title: 'Accountant'},
+            {name: 'Andy', title: 'Metalurgist'},
+            {name: 'Brian', title: 'Welder'},
+            {name: 'Jesie', title: 'Robotics'},
+
+        ],
+        companyName: "JGDSOFT",
+    },
+
 })
